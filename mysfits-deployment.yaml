@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysfits-deployment
+  labels:
+    app: mysfits
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysfits
+  template:
+    metadata:
+      labels:
+        app: mysfits
+    spec:
+      serviceAccountName: mysfits-sa
+      containers:
+      - name: mysfits
+        image: 200562504897.dkr.ecr.eu-west-1.amazonaws.com/eksstack-breezyrepob8e956fd-x8goxtfoylat:0ddf5e90f11c1d92376c6f67c5c3419672a1d993
+        ports:
+        - containerPort: 80
+        env:
+        - name: DDB_TABLE_NAME
+          value: "AppStack-MysfitsTable54ADD99F-1BDQX4YRWNH5C"
+        - name: AWS_DEFAULT_REGION
+          value: "eu-west-1"
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+          requests:
+            memory: "512Mi"
+            cpu: "250m"

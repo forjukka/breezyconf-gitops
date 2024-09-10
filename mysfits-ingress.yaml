@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mysfits-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: mysfits.jukka.cloud
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: mysfits-service
+            port:
+              number: 80
+  # Uncomment the following to add TLS support
+  # tls:
+  # - hosts:
+  #   - mysfits.jukka.cloud
+  #   secretName: mysfits-tls-secret
