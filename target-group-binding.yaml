@@ -1,9 +1,10 @@
 apiVersion: elbv2.k8s.aws/v1beta1
 kind: TargetGroupBinding
 metadata:
-  name: my-tgb
+  name: mysfits-tgb
 spec:
   serviceRef:
-    name: awesome-service # route traffic to the awesome-service
+    name: mysfits-service
     port: 80
-  targetGroupARN: <arn-to-targetGroup>
+  targetGroupARN: arn:aws:elasticloadbalancing:eu-west-1:200562504897:targetgroup/AppSta-Targe-PHJVLV2ERCUA/32c0fbcdd5647848
+  targetType: ip
