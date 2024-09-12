@@ -17,7 +17,7 @@ spec:
       serviceAccountName: mysfits-sa
       containers:
       - name: mysfits
-        image: 200562504897.dkr.ecr.eu-west-1.amazonaws.com/eksstack-breezyrepob8e956fd-x8goxtfoylat:0ddf5e90f11c1d92376c6f67c5c3419672a1d993
+        image: 200562504897.dkr.ecr.eu-west-1.amazonaws.comeksstack-breezyrepob8e956fd-x8goxtfoylat5bfd11846f47cff3788304f0aeb892379f455828
         ports:
         - containerPort: 80
         env:
